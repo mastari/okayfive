@@ -1,0 +1,195 @@
+@mixin getColor($r, $g, $b) {
+  background-color: rgb($r, $g, $b);
+  text-shadow: 2px 2px 0 rgb($r - 19, $g - 58, $b + 11);
+}
+
+.courseContent {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 170px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 2000px;
+  // border: 1px solid rgba(128, 128, 128, 0.226);
+
+  @media screen and (max-width: 2000px) {
+    width: 1800px;
+  }
+
+  @media screen and (max-width: 1800px) {
+    width: 1600px;
+  }
+
+  @media screen and (max-width: 1700px) {
+    width: 1500px;
+  }
+
+  &>.courseUnit {
+    margin: 40px;
+    width: 580px;
+    // box-shadow: 2px 2px 4px rgb(226, 226, 226);
+    border-radius: 20px;
+
+    @media screen and (max-width: 2000px) {
+      width: 450px;
+    }
+
+    @media screen and (max-width: 1800px) {
+      width: 400px;
+    }
+
+    @media screen and (max-width: 1700px) {
+      width: 650px;
+    }
+
+    &>.courseUnitTitle {
+      border-radius: 18px;
+      font-weight: bold;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      padding-top: 23px;
+      padding-bottom: 20px;
+      font-size: 25px;
+      padding-left: 40px;
+      color: white;
+    }
+  }
+}
+
+.cGreen {
+
+  &>.courseUnitTitle {
+    color: rgb(30, 173, 11);
+    @include getColor(30, 173, 11);
+    text-shadow: 2px 2px 0 rgb(23, 141, 7);
+    // border: 2px solid rgb(23, 141, 7);
+  }
+}
+
+.cOrange {
+  &>.courseUnitTitle {
+    background-color: rgb(221, 124, 13);
+    text-shadow: 2px 2px 0 rgb(184, 101, 7);
+    border: 2px solid rgb(190, 104, 6);
+  }
+
+  &>.courseUnitContents {}
+}
+
+.cBlue {
+  &>.courseUnitTitle {
+    color: rgb(12, 106, 184);
+    @include getColor(12, 106, 184);
+    text-shadow: 2px 2px 0 rgb(4, 78, 139);
+  }
+}
+
+.currentUnit {
+
+  &>.courseUnitTitle {
+    border: 2px solid rgb(180, 92, 9);
+    border-bottom: none;
+  }
+
+  &>.courseUnitContents {
+    border: 2px solid rgb(180, 92, 9);
+    border-top: none;
+  }
+
+}
+
+.courseUnitContents {
+  background-color: rgb(243, 243, 243);
+  border-radius: 18px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border: 2px solid rgb(207, 207, 207);
+  border-top: none;
+  min-height: 315px; //dynamic todo
+
+  &>ul {
+    margin: 0px;
+    list-style: none;
+    padding: 0px;
+
+    &>li {
+      padding: 20px;
+      padding-left: 50px;
+      font-size: 18px;
+      box-shadow: 0 5px 5px -2px rgb(216, 216, 216);
+    }
+
+    &>li:last-child {
+      padding-bottom: 25px;
+      box-shadow: none;
+    }
+  }
+}
+
+.course {
+  // background-color: #f3f3f3;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  overflow: visible;
+
+  &>.courseHeader {
+
+    display: flex;
+    position: fixed;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #41414142;
+    // box-shadow: 2px 2px 5px rgb(179, 179, 179);
+    // // box-shadow: 0px 2px 3px rgb(182, 182, 182);
+
+    &>#title {
+      height: 90px;
+      display: flex;
+      flex-wrap: nowrap;
+      width: 50%;
+      clip-path: polygon(0 0, 100% 0, 90% 100.0%, 0% 100%);
+      background-color: #00a0ebce;
+      flex-direction: column;
+      justify-content: center;
+
+      &>p {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        color: white;
+        text-shadow: 4px 3px 0 #0665a5;
+
+        font-weight: bold;
+        font-size: 42px;
+
+        &>#viewing {
+          margin-left: 20px;
+          font-size: 24px;
+          font-weight: normal;
+          color: #b4e8fc;
+          text-shadow: none;
+        }
+      }
+    }
+
+    &>a {
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-right: 75px;
+      text-decoration: none;
+
+      &>#leave {
+        font-size: 22px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+      }
+
+    }
+  }
+
+}
